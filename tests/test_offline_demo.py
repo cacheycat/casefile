@@ -1,7 +1,7 @@
 """The committed demo snapshot lets the baseline investigation run with no network."""
 import pytest
-from agentkit import LLM, Memory, Store
 
+from agentkit import LLM, Memory, Store
 from lib import agent, chain
 
 DEMO_SEED = "0xd8da6bf26964af9d7eed9e03e53415d37aa96045"

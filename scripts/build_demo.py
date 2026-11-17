@@ -16,7 +16,6 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from agentkit import LLM, Memory, Store  # noqa: E402
-
 from lib import agent, chain  # noqa: E402
 
 KEEP_ITEMS = 25
