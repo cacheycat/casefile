@@ -7,7 +7,7 @@ model, so every number in a report has a code path behind it.
 from __future__ import annotations
 
 from collections import defaultdict
-from datetime import datetime, timezone
+from datetime import datetime
 
 
 def _ts(iso: str | None) -> float:

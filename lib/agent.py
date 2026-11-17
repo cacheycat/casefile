@@ -12,7 +12,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from agentkit import END, LLM, Index, Memory, StateGraph, load_cards
+from agentkit import LLM, Index, Memory, StateGraph, load_cards
 
 from . import chain
 from .graphmodel import CaseGraph
@@ -60,7 +60,8 @@ def investigate(emit, *, memory: Memory, llm: LLM, seed: str, budget: int = 6, p
     g = CaseGraph(chain.eth_price())
     st = {"round": 0, "spent": 0, "annotations": {}, "done_reason": None, "report": None,
           "recalled": [], "notes": [], "queue": [seed]}
-    log_call = lambda rec: emit("llm", rec)
+    def log_call(rec):
+        emit("llm", rec)
 
     def fenced(features: list[dict]) -> str:
         """Frontier features with untrusted strings clearly delimited."""
