@@ -49,14 +49,14 @@ and a risk call with its confidence.
 <img src="docs/media/graph.gif" alt="Hovering and pinning nodes in the fund-flow graph" width="720">
 
 Node size is USD flowing through; circles are wallets, diamonds are contracts. Edge weight is aggregated value.
-Hover a node for its counterparties and activity span, click to pin and dim everything unrelated. The graph caps
+Hover a node for its explorer label (marked unverified), USD in and out, any scam flag and the agent's role note, click to pin and dim everything unrelated. The graph caps
 what it draws and tells you how many nodes are hidden.
 
 ### 2. Read the report, the role annotations and the heuristics it learned
 
 <img src="docs/media/report-and-memory.gif" alt="Report, annotations and learned heuristics across two cases" width="720">
 
-The report separates computed facts from model claims. Roles (exchange, relay, sink, bait) are annotated per
+The report separates computed facts from model claims. Roles (source, sink, pass-through, service, exchange, mixer-like, victim, unknown) are annotated per
 address. After each case the agent stores a heuristic in memory, ranked later by relevance × learned utility, then
 the demo switches to a second case (a personal wallet) to show a very different result.
 
