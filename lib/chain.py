@@ -15,6 +15,7 @@ from agentkit.http import fetch_json
 
 BASE = "https://eth.blockscout.com/api/v2"
 SNAP = Path(__file__).resolve().parent.parent / "data" / "snapshots"
+DEMO = Path(__file__).resolve().parent.parent / "demo" / "snapshots"  # committed, read-only
 PAGE_LIMIT = 2  # pages per endpoint per address: enough signal, bounded cost
 
 _ADDR = re.compile(r"^0x[0-9a-fA-F]{40}$")
@@ -30,6 +31,8 @@ def _cached(url: str) -> dict:
     path = SNAP / f"{key}.json"
     if path.exists():
         return json.loads(path.read_text())
+    if (DEMO / path.name).exists():
+        return json.loads((DEMO / path.name).read_text())
     out = fetch_json(url)
     path.write_text(json.dumps(out))
     return out
