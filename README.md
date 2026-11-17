@@ -48,6 +48,11 @@ disabled, else a deterministic heuristic report.
 | GET | `/api/memory` | Stored heuristics with learned utility |
 | GET | `/api/runs`, `/api/runs/{id}`, `/api/runs/{id}/events` | Run list, detail, SSE trace |
 
+## Offline demo
+
+`demo/snapshots/` holds a trimmed Blockscout snapshot for the demo address, so a fresh clone
+runs without network access. Rebuild it with `AGENT_LLM=baseline python scripts/build_demo.py`.
+
 ## Tests
 
 ```bash
