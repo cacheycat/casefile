@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casefile · on-chain investigation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/kit/kit.css">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <span class="mark" aria-hidden="true"></span>
+    <div><h1>Casefile</h1><p>Follow the money, cite the evidence</p></div>
+  </div>
+  <form class="controls" id="controls">
+    <label>Case<select id="run-select"></select></label>
+    <label class="grow">Seed address<input id="seed" spellcheck="false" placeholder="0x…" required pattern="0x[0-9a-fA-F]{40}"></label>
+    <label>Budget<input id="budget" type="number" min="2" max="10" value="6"></label>
+    <button type="submit" id="start">Open case</button>
+  </form>
+</header>
+
+<main>
+  <section class="stats" id="stats"></section>
+
+  <section class="panel">
+    <div class="panel-head"><h2>Investigation loop</h2><span class="hint" id="mode"></span></div>
+    <div id="flow"></div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head"><h2>Fund-flow graph</h2>
+      <span class="hint">node size = USD through · ◇ contract · ○ wallet · hover for detail, click to pin</span></div>
+    <div id="graph" class="graph"></div>
+    <div class="legend" id="graph-legend"></div>
+  </section>
+
+  <div class="grid two">
+    <section class="panel" id="report-panel">
+      <div class="panel-head"><h2>Case report</h2><span class="hint" id="report-hint"></span></div>
+      <div id="report"></div>
+    </section>
+    <section class="panel">
+      <div class="panel-head"><h2>Annotations</h2><span class="hint">the agent's role calls, as it makes them</span></div>
+      <div id="annotations"></div>
+      <div class="panel-head sub"><h2>Heuristics memory</h2><span class="hint">carried across cases · utility learned from outcomes</span></div>
+      <div id="heuristics"></div>
+      <div class="panel-head sub"><h2>Trace</h2><span class="hint" id="trace-hint"></span></div>
+      <div id="trace"></div>
+    </section>
+  </div>
+</main>
+<footer>Public on-chain data via Blockscout. Names, tags and token titles are unverified display strings; amounts are computed from fetched transfers. This is an analysis aid, not an accusation.</footer>
+<script type="module" src="/app.js"></script>
+</body>
+</html>
